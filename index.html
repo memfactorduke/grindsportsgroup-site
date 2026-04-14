@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grind Sports Group — Athlete-First NIL Agency</title>
+<meta name="description" content="Grind Sports Group is an athlete-first NIL agency connecting college athletes with brands. Sports marketing, brand partnerships, and athlete management.">
+<style>
+/* ═══════════════════════════════════════════════════════
+   GRIND SPORTS GROUP — WEBSITE STYLES
+   Aesthetic: Athletic Brutalism × Luxury Sports
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange: #C44B1A;
+  --orange-light: #E05A28;
+  --orange-glow: rgba(196, 75, 26, 0.25);
+  --black: #0A0A0A;
+  --charcoal: #141414;
+  --dark: #1A1A1A;
+  --gray-dark: #2A2A2A;
+  --gray: #666;
+  --gray-light: #999;
+  --white: #F5F5F5;
+  --pure-white: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'System Athletic';
+  src: local('Impact'), local('Haettenschweiler'), local('Arial Narrow Bold');
+  font-weight: 700;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background: var(--black);
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: var(--white);
+  background: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── NAVIGATION ───────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s;
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+.nav-logo-sub {
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  font-weight: 600;
+}
+.nav-logo-main {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  transition: color 0.3s;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--pure-white); }
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  background: var(--orange);
+  color: var(--pure-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.btn-cta:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--orange-glow);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  background: transparent;
+  color: var(--pure-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+.btn-outline:hover {
+  border-color: var(--pure-white);
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.mobile-nav.open { opacity: 1; pointer-events: all; }
+.mobile-nav a {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.3s;
+}
+.mobile-nav a:hover { color: var(--orange); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+}
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px clamp(1.5rem, 6vw, 6rem) 80px;
+  overflow: hidden;
+}
+
+/* Diagonal accent lines */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 140%;
+  background: linear-gradient(135deg, transparent 45%, var(--orange-glow) 45%, var(--orange-glow) 45.5%, transparent 45.5%,
+    transparent 55%, rgba(196,75,26,0.1) 55%, rgba(196,75,26,0.1) 55.5%, transparent 55.5%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,75,26,0.4), transparent);
+}
+
+.hero-overline {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 0.3s forwards;
+}
+
+.hero-headline {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 0.5s forwards;
+}
+.hero-headline .accent { color: var(--orange); }
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--gray-light);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 0.7s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s 0.9s forwards;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MARQUEE ──────────────────────────────────── */
+.marquee-section {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+}
+.marquee-item .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTION COMMON ───────────────────────────── */
+section {
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 6vw, 6rem);
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 2.5rem;
+}
+
+/* ── ABOUT ────────────────────────────────────── */
+.about {
+  background: var(--black);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+}
+
+.about-text p {
+  color: var(--gray-light);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-card {
+  padding: 2rem;
+  background: var(--charcoal);
+  border-left: 3px solid var(--orange);
+  transition: transform 0.3s, background 0.3s;
+}
+.about-card:hover {
+  transform: translateX(8px);
+  background: var(--dark);
+}
+
+.about-card h3 {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  color: var(--pure-white);
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ── ATHLETES ─────────────────────────────────── */
+.athletes {
+  background: var(--charcoal);
+  position: relative;
+}
+.athletes::before {
+  content: 'ROSTER';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: clamp(6rem, 18vw, 16rem);
+  color: rgba(255,255,255,0.02);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.athletes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+.athlete-card {
+  background: var(--dark);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  position: relative;
+}
+.athlete-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.athlete-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--gray-dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.athlete-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, var(--dark), transparent);
+}
+.athlete-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: relative;
+  z-index: 0;
+}
+.athlete-photo .initials {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 4rem;
+  color: rgba(255,255,255,0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.athlete-info {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.athlete-name {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.athlete-detail {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.athlete-school {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  margin-bottom: 1rem;
+}
+
+.athlete-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+.athlete-socials a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
+}
+.athlete-socials a:hover {
+  background: var(--orange);
+  transform: scale(1.1);
+}
+.athlete-socials svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--white);
+}
+
+/* ── SERVICES ─────────────────────────────────── */
+.services {
+  background: var(--black);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1px;
+  max-width: 1200px;
+  background: rgba(255,255,255,0.06);
+}
+
+.service-card {
+  padding: 2.5rem;
+  background: var(--black);
+  position: relative;
+  transition: background 0.4s;
+  counter-increment: service;
+}
+.service-card:hover {
+  background: var(--charcoal);
+}
+.service-card::before {
+  content: counter(service, decimal-leading-zero);
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 3rem;
+  color: rgba(196, 75, 26, 0.15);
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  line-height: 1;
+}
+
+.service-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.service-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.service-card h3 {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  color: var(--pure-white);
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-light);
+}
+
+/* ── BRAND PARTNERS ───────────────────────────── */
+.partners {
+  background: var(--charcoal);
+  text-align: center;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+}
+
+.partner-item {
+  padding: 2.5rem 1.5rem;
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.partner-item:hover { background: var(--dark); }
+
+.partner-name {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+  transition: color 0.3s;
+}
+.partner-item:hover .partner-name { color: var(--pure-white); }
+
+/* ── CONTACT / CTA ────────────────────────────── */
+.contact {
+  background: var(--black);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact::before {
+  content: 'GRIND';
+  position: absolute;
+  bottom: -0.15em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: clamp(8rem, 25vw, 22rem);
+  color: rgba(255,255,255,0.015);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 0.8;
+}
+
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-headline {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: var(--gray-light);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.contact-link {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+.contact-link:hover { color: var(--orange); }
+.contact-link svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* ── FOOTER ───────────────────────────────────── */
+.footer {
+  padding: 2rem clamp(1.5rem, 6vw, 6rem);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--black);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--orange); }
+
+/* ── COUNTER-RESET ────────────────────────────── */
+.services-grid { counter-reset: service; }
+
+/* ── UTILITY ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn-cta,
+  .hero-buttons .btn-outline { width: 100%; justify-content: center; }
+  .services-grid { grid-template-columns: 1fr; }
+  .athletes-grid { grid-template-columns: 1fr; }
+  .partners-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-sub">Grind Sports Group</span>
+    <span class="nav-logo-main">GSG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#athletes">Athletes</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="btn-cta">Work With Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#athletes" onclick="closeMobile()">Athletes</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#partners" onclick="closeMobile()">Partners</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#contact" class="btn-cta" onclick="closeMobile()" style="margin-top:1rem;">Work With Us</a>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-overline">Athlete-First NIL Agency</div>
+  <h1 class="hero-headline">
+    Founded by athletes.<br>
+    Driven by <span class="accent">partnerships</span>.<br>
+    Powered by hustle.
+  </h1>
+  <p class="hero-tagline">Built for the Grind. Backed by the Brand.</p>
+  <div class="hero-buttons">
+    <a href="#athletes" class="btn-cta">Our Athletes
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#contact" class="btn-outline">Partner With Us</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     BRAND MARQUEE
+     ══════════════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">Stand+ <span class="dot"></span></div>
+    <div class="marquee-item">Joe's Pizza <span class="dot"></span></div>
+    <div class="marquee-item">Dig Inn <span class="dot"></span></div>
+    <div class="marquee-item">Sunset Cantina <span class="dot"></span></div>
+    <div class="marquee-item">Fit King <span class="dot"></span></div>
+    <div class="marquee-item">Kut Football <span class="dot"></span></div>
+    <div class="marquee-item">Viva Burrito <span class="dot"></span></div>
+    <div class="marquee-item">Slate Milk <span class="dot"></span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item">Stand+ <span class="dot"></span></div>
+    <div class="marquee-item">Joe's Pizza <span class="dot"></span></div>
+    <div class="marquee-item">Dig Inn <span class="dot"></span></div>
+    <div class="marquee-item">Sunset Cantina <span class="dot"></span></div>
+    <div class="marquee-item">Fit King <span class="dot"></span></div>
+    <div class="marquee-item">Kut Football <span class="dot"></span></div>
+    <div class="marquee-item">Viva Burrito <span class="dot"></span></div>
+    <div class="marquee-item">Slate Milk <span class="dot"></span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ABOUT
+     ══════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="section-label reveal">About Us</div>
+  <h2 class="section-title reveal reveal-delay-1">Who We Are</h2>
+  <div class="section-divider reveal reveal-delay-2"></div>
+  <div class="about-grid">
+    <div class="about-text reveal reveal-delay-3">
+      <p>Grind Sports Group is an athlete-first NIL agency specializing in connecting college football and basketball athletes with brands that align with their identity — creating partnerships that last beyond the season.</p>
+      <p>Our mission is to empower athletes by securing NIL deals and brand partnerships that authentically reflect their personal brands, passions, and long-term goals. We're dedicated to elevating athletic excellence through meaningful collaborations that support who our athletes are, on and off the field.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card reveal reveal-delay-2">
+        <h3>Our Mission</h3>
+        <p>Empower athletes through NIL deals and brand partnerships that authentically reflect their personal brands, passions, and long-term goals.</p>
+      </div>
+      <div class="about-card reveal reveal-delay-3">
+        <h3>Why Grind</h3>
+        <p>We don't just find deals — we build brands. Every athlete gets personalized strategy, hands-on support, and access to a network of brands ready to invest in the next generation of stars.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ATHLETES
+     ══════════════════════════════════════════════ -->
+<section class="athletes" id="athletes">
+  <div class="section-label reveal">Our Roster</div>
+  <h2 class="section-title reveal reveal-delay-1">The Athletes</h2>
+  <div class="section-divider reveal reveal-delay-2"></div>
+  <div class="athletes-grid">
+
+    <div class="athlete-card reveal reveal-delay-1">
+      <div class="athlete-photo"><img src="images/terry-moore.jpg" alt="Terry Moore" loading="lazy"></div>
+      <div class="athlete-info">
+        <div class="athlete-name">Terry Moore</div>
+        <div class="athlete-detail">DB · Football</div>
+        <div class="athlete-school">Ohio State</div>
+        <div class="athlete-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4H18l-5 6.2L9 4H4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="athlete-card reveal reveal-delay-2">
+      <div class="athlete-photo"><img src="images/todd-pelino.jpg" alt="Todd Pelino" loading="lazy"></div>
+      <div class="athlete-info">
+        <div class="athlete-name">Todd Pelino</div>
+        <div class="athlete-detail">Kicker · Football</div>
+        <div class="athlete-school">Duke</div>
+        <div class="athlete-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4H18l-5 6.2L9 4H4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="athlete-card reveal reveal-delay-3">
+      <div class="athlete-photo"><img src="images/austin-hunt.jpg" alt="Austin Hunt" loading="lazy"></div>
+      <div class="athlete-info">
+        <div class="athlete-name">Austin Hunt</div>
+        <div class="athlete-detail">Guard · Basketball</div>
+        <div class="athlete-school">Harvard</div>
+        <div class="athlete-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4H18l-5 6.2L9 4H4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="athlete-card reveal reveal-delay-4">
+      <div class="athlete-photo"><img src="images/ethan-okwuosa.jpg" alt="Ethan Okwuosa" loading="lazy"></div>
+      <div class="athlete-info">
+        <div class="athlete-name">Ethan Okwuosa</div>
+        <div class="athlete-detail">Guard · Basketball</div>
+        <div class="athlete-school">Harvard</div>
+        <div class="athlete-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4H18l-5 6.2L9 4H4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SERVICES
+     ══════════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="section-label reveal">What We Do</div>
+  <h2 class="section-title reveal reveal-delay-1">Services</h2>
+  <div class="section-divider reveal reveal-delay-2"></div>
+  <div class="services-grid reveal reveal-delay-3">
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>NIL Brand Partnerships</h3>
+      <p>Connecting athletes with brands that match their identity and goals. We find the right fit, not just any deal.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Custom Deal Negotiation</h3>
+      <p>Structuring deals so athletes get fair, meaningful compensation. Every contract is tailored to protect and elevate.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </div>
+      <h3>Social Media Strategy</h3>
+      <p>Growing athlete platforms to attract brands and build fanbases. Data-driven content strategies that convert followers into fans.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+      </div>
+      <h3>Strategic Client Branding</h3>
+      <p>Building a personal brand that stands out on and off the field. Your name becomes the brand.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+      </div>
+      <h3>Dynamic Content Creation</h3>
+      <p>High-quality content for campaigns, social, and athlete promotion. From concept to camera to conversion.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </div>
+      <h3>Marketing & PR</h3>
+      <p>Amplifying athlete stories through media outreach and press. We get the right eyes on every story worth telling.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     BRAND PARTNERS
+     ══════════════════════════════════════════════ -->
+<section class="partners" id="partners">
+  <div class="section-label reveal">Trusted By</div>
+  <h2 class="section-title reveal reveal-delay-1">Brand Partners</h2>
+  <div class="section-divider reveal reveal-delay-2" style="margin:0 auto 2.5rem;"></div>
+  <div class="partners-grid reveal reveal-delay-3">
+    <div class="partner-item"><span class="partner-name">Stand+</span></div>
+    <div class="partner-item"><span class="partner-name">Joe's Pizza</span></div>
+    <div class="partner-item"><span class="partner-name">Dig Inn</span></div>
+    <div class="partner-item"><span class="partner-name">Sunset Cantina</span></div>
+    <div class="partner-item"><span class="partner-name">Fit King</span></div>
+    <div class="partner-item"><span class="partner-name">Kut Football</span></div>
+    <div class="partner-item"><span class="partner-name">Viva Burrito</span></div>
+    <div class="partner-item"><span class="partner-name">Slate Milk</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="contact-headline reveal reveal-delay-1">Let's Build<br>Something <span style="color:var(--orange)">Together</span></h2>
+    <p class="contact-text reveal reveal-delay-2">Ready to take your brand to the next level? Whether you're an athlete looking for representation or a brand looking for authentic partnerships, we want to hear from you.</p>
+    <div class="contact-links reveal reveal-delay-3">
+      <a href="mailto:partnerships@grindsportsgroup.com" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        partnerships@grindsportsgroup.com
+      </a>
+      <a href="https://instagram.com/grindsportsgroup" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        @grindsportsgroup
+      </a>
+    </div>
+    <a href="mailto:partnerships@grindsportsgroup.com" class="btn-cta reveal reveal-delay-4">Work With Us
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-copy">&copy; 2025 Grind Sports Group. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#athletes">Athletes</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════ -->
+<script>
+// Mobile nav toggle
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
