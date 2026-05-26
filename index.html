@@ -1347,6 +1347,103 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 reveals.forEach(el => observer.observe(el));
+
+// Athlete Modal
+const athletes = {
+  "Terry Moore": {
+    photo: "images/terry-moore.jpg",
+    detail: "DB · Football",
+    school: "Ohio State",
+    instagram: "https://instagram.com/tj.2raww__",
+    bio: `<p>Terry Moore enters the 2026 season at Ohio State University as one of the top returning safeties in college football after transferring from Duke University in January 2026. A 2024 Second Team All-American and Second Team All-ACC selection, Moore earned national recognition for his playmaking ability and versatility in the secondary.</p><p>Over four seasons at Duke, Moore appeared in 33 games with 19 starts, totaling 116 tackles, 10.5 tackles for loss, 3.5 sacks, four interceptions, two forced fumbles, and eight pass breakups. In 2024, he started all 13 games and recorded 71 tackles, 7.0 TFLs, four interceptions, and two forced fumbles while earning a 90.1 Pro Football Focus grade — the second-highest among all safeties nationally with at least 100 snaps played.</p><p>Off the field, Moore graduated from Duke in May 2025 with a degree in sociology and a certificate in markets and management while earning three Academic All-ACC honors. A former North Carolina All-State selection at Washington High School, Moore rushed for nearly 5,000 career yards before transitioning into one of college football's top defensive backs.</p>`
+  },
+  "Dorian Mausi": {
+    photo: "images/y4djupw7esiwg3j0qofq.webp",
+    detail: "LB · Football",
+    school: "Tennessee Titans",
+    instagram: "https://instagram.com/dorianmausi",
+    bio: `<p>Dorian Mausi is a linebacker for the Tennessee Titans who earned a spot on the team's 53-man roster during the 2025 NFL season after being claimed off waivers from the Minnesota Vikings. Known for his athleticism, versatility, and physical tackling ability, Mausi brings experience both on defense and special teams at the professional level.</p><p>Mausi played four seasons at Duke University before transferring to Auburn University for his final collegiate season in 2024. At Auburn, he led the team with 81 tackles while adding 9.5 tackles for loss and 2.5 sacks. Across his college career, Mausi totaled 274 tackles, 18 tackles for loss, five sacks, one interception, and two forced fumbles over 56 career games.</p><p>A Detroit native, Mausi graduated from Duke in 2024 with a degree in psychology, a minor in sociology, and a certificate in innovation and entrepreneurship. Before college, he starred at University of Detroit Jesuit High School, where he earned All-State honors and was named Defensive Player of the Year after recording 10 sacks and six forced fumbles as a senior.</p>`
+  },
+  "Brandon Johnson": {
+    photo: "images/Brandon.Johnson.webp",
+    detail: "DB · Football",
+    school: "Philadelphia Eagles",
+    instagram: "https://instagram.com/bj3k__",
+    bio: `<p>Brandon Johnson signed with the Philadelphia Eagles as an undrafted free agent in 2025 after finishing his college career at University of Oregon and Duke University. A cornerback out of Newton, North Carolina, Johnson appeared in 51 collegiate games with 34 starts, totaling 173 tackles, 20.5 tackles for loss, 19 pass breakups, 8.0 sacks, four fumble recoveries, and three interceptions across his time at Duke and Oregon.</p><p>During the 2024 season at Oregon, Johnson played in 14 games and helped lead the Ducks to a Big Ten Championship and Rose Bowl appearance while recording 45 tackles, 4.5 tackles for loss, six pass breakups, and an interception. His standout season came at Duke in 2022, when he earned All-ACC Honorable Mention honors after posting 55 tackles, 7.5 tackles for loss, 5.5 sacks, and two interceptions, including a pick-six.</p><p>Johnson comes from a strong athletic family background, with both of his parents competing at Lenoir-Rhyne University. He graduated from Duke with a degree in sociology before transferring to Oregon for his final collegiate season.</p>`
+  },
+  "Jordan Waters": {
+    photo: "images/Jordan.Waters.png",
+    detail: "RB · Football",
+    school: "LA Rams",
+    instagram: "https://instagram.com/j.waters7",
+    bio: `<p>Jordan Waters is a dynamic running back entering his second season with the Los Angeles Rams after a standout college career at Duke University and North Carolina State University. Known for his physical running style and nose for the end zone, Waters finished his Duke career ranked third in program history in rushing touchdowns with 23 total scores.</p><p>During the 2023 season at Duke, Waters emerged as one of the ACC's top backs, rushing for 753 yards and 12 touchdowns while ranking among the conference leaders in rushing scores, rushing yards, and yards per carry. He found the end zone in eight of Duke's 13 games and his 12 rushing touchdowns tied for the fifth-most in a single season in school history.</p><p>Coming out of Fairmont High School in North Carolina, Waters was a consensus three-star recruit and one of the most versatile athletes in the state. As a senior, he accounted for over 2,300 yards of total offense and 29 touchdowns while earning All-Conference and All-County honors throughout his high school career.</p>`
+  },
+  "Nick Morris": {
+    photo: "images/i-2.png",
+    detail: "LB · Football",
+    school: "Duke",
+    instagram: "https://instagram.com/__Nickmorris",
+    bio: `<p>Nick Morris is a linebacker for Duke University entering the 2026 season as a key veteran presence on the Blue Devils' defense. A 2023 Academic All-ACC and College Sports Communicators Academic All-District selection, Morris has built a reputation as a physical, instinctive defender and strong leader on and off the field.</p><p>In 24 career games with 10 starts, Morris has totaled 93 tackles, 6.5 tackles for loss, one sack, two fumble recoveries, and two quarterback pressures. During the 2023 season, he appeared in all 13 games while making five starts and finished tied for third on the team with 61 tackles, including a career-high 12-tackle performance against Pittsburgh.</p><p>Before Duke, Morris starred at Fairfield College Prep and Westlake High School, where he totaled 220 tackles and 23 sacks while earning all-state honors and being named the Austin American-Statesman Central Texas Defensive Player of the Year. Off the field, Morris graduated from Duke in May 2025 with a degree in economics and is currently pursuing a master's in management studies from Duke's Fuqua School of Business.</p>`
+  },
+  "Brycen Coleman": {
+    photo: "images/Brycen.Coleman.png",
+    detail: "WR · Football",
+    school: "Vanderbilt",
+    instagram: "https://instagram.com/brycen.coleman",
+    bio: `<p>Brycen Coleman is one of the more versatile young athletes in college football, bringing a unique all-around skill set to Vanderbilt's offense. After appearing in all 13 games as a sophomore in 2025, Coleman showcased his explosiveness with a 54-yard touchdown reception against Virginia Tech while also contributing on special teams and defense.</p><p>Coming out of Stephen Decatur High School in Maryland, Coleman was regarded as one of the top athletes in the country, earning four-star recognition from 247Sports and ranking among the nation's top 65 overall prospects. Across his high school career, he totaled over 3,000 combined rushing and receiving yards while accounting for 41 touchdowns. He also made Maryland history by surpassing 1,000 career yards passing, rushing, and receiving.</p><p>Coleman helped lead Stephen Decatur to a perfect 14-0 record and the first football state championship in school history in 2023. Off the field, Coleman enjoys surfing, snowboarding, and video games.</p>`
+  },
+  "Austin Hunt": {
+    photo: "images/austin-hunt.jpg",
+    detail: "Guard · Basketball",
+    school: "Harvard",
+    instagram: "https://instagram.com/austinhunt_",
+    bio: `<p>Austin Hunt, a guard at Harvard University, made an immediate impact in his freshman season (2024–25), earning the team's John Harnice '84 Spirit Award despite missing eight games due to injury. He appeared in 19 games with one start, averaging 7.8 points, 3.6 rebounds, and 1.8 assists while leading the team in field goal percentage (53.6) and ranking fourth in the Ivy League.</p><p>Before Harvard, Hunt was a three-time All-Independent School League selection, two-time All-NEPSAC Class A honoree, and 2023–24 Team MVP at Milton Academy. He scored 1,286 career points, captained his team, and helped lead them to ISL and NEPSAC Class A titles in 2022–23. On the AAU circuit, he played for Middlesex Magic, winning Under Armour national titles in 2022 and 2023.</p><p>Off the court, Hunt has served as a dorm leader and volunteered with Special Olympics.</p>`
+  },
+  "Ethan Okwuosa": {
+    photo: "images/ethan-okwuosa.jpg",
+    detail: "Guard · Basketball",
+    school: "Southern New Hampshire",
+    instagram: "https://instagram.com/ethanokwuosa",
+    bio: `<p>Ethan Okwuosa, a two-time team captain at Boston University, is heading into his final season after transferring back to Southern New Hampshire University. After starting 31 games as a junior at BU, he averaged 7.5 points, 4.2 rebounds, and 24.8 minutes per game, helping BU to a second-place finish in the Patriot League standings. Known for his clutch play, Okwuosa delivered a buzzer-beating layup at Lehigh and added six points in the Terriers' quarterfinal win over Navy.</p><p>Before BU, he earned All-NE10 Second Team honors at Southern New Hampshire, where he averaged 12.4 points, 5.9 rebounds, and 2.3 assists per game as a sophomore.</p><p>A standout on and off the court, Okwuosa is a two-time CSC Academic All-District honoree and has earned Patriot League Academic Honor Roll and NABC Honors Court recognition. A psychology major, he was a National Honor Society member and track record-holder at Cheshire Academy, where he was also a two-sport captain.</p>`
+  },
+  "Todd Pelino": {
+    photo: "images/todd-pelino.jpg",
+    detail: "Kicker · Football",
+    school: "Duke",
+    instagram: "https://instagram.com/todd_pelino9",
+    bio: `<p>Todd Pelino is a kicker at Duke University.</p>`
+  }
+};
+
+document.querySelectorAll('.athlete-card').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    const name = card.querySelector('.athlete-name').textContent;
+    const data = athletes[name];
+    if (!data) return;
+    document.getElementById('modalPhoto').src = data.photo;
+    document.getElementById('modalPhoto').alt = name;
+    document.getElementById('modalName').textContent = name;
+    document.getElementById('modalDetail').textContent = data.detail;
+    document.getElementById('modalSchool').textContent = data.school;
+    document.getElementById('modalBio').innerHTML = data.bio;
+    document.getElementById('modalInstagram').href = data.instagram;
+    document.getElementById('athleteModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.getElementById('modalClose').addEventListener('click', () => {
+  document.getElementById('athleteModal').classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+document.getElementById('athleteModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('athleteModal')) {
+    document.getElementById('athleteModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 </script>
 
 </body>
