@@ -765,6 +765,109 @@ section {
 }
 .footer-links a:hover { color: var(--orange); }
 
+/* ── ATHLETE MODAL ────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 2rem;
+}
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-box {
+  background: var(--charcoal);
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  overflow: hidden;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+}
+.modal-close:hover { background: var(--orange); }
+.modal-photo {
+  width: 300px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.modal-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.modal-content {
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+.modal-name {
+  font-family: 'System Athletic', Impact, sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--pure-white);
+  margin-bottom: 0.4rem;
+}
+.modal-detail {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.modal-school {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  margin-bottom: 1.5rem;
+}
+.modal-bio p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--gray-light);
+  margin-bottom: 1rem;
+}
+.modal-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  transition: color 0.3s;
+}
+.modal-instagram:hover { color: var(--pure-white); }
+.modal-instagram svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 600px) {
+  .modal-box { grid-template-columns: 1fr; }
+  .modal-photo { width: 100%; aspect-ratio: 4/3; }
+}
+
 /* ── COUNTER-RESET ────────────────────────────── */
 .services-grid { counter-reset: service; }
 
