@@ -872,6 +872,12 @@ section {
 .services-grid { counter-reset: service; }
 
 /* ── UTILITY ──────────────────────────────────── */
+@media (max-width: 768px) {
+  #founder .about-text { min-width: 0; width: 100%; }
+  #founder > div > div:first-child { width: 100% !important; max-width: 100% !important; }
+  div[style*="grid-template-columns: 320px"] { grid-template-columns: 1fr !important; }
+}
+
 @media (max-width: 480px) {
   .hero-buttons { flex-direction: column; }
   .hero-buttons .btn-cta,
